@@ -1,7 +1,7 @@
 'use client';
 
-import PageTitle from "@/components/PageTitle";
 import { useState } from "react";
+import PageTitle from "@/components/PageTitle";
 
 export default function Home() {
   // create a state var to track # of button clicks, defaults to zero
@@ -17,7 +17,7 @@ export default function Home() {
     <main>
       <PageTitle title="Home" />
       <h1>COMP2112 Class Site</h1>
-      <p>This site is built with Next.js</p>
+      <p>This is Rich&apos;s in class site is built with Next.js and is hosted on Vercel.</p>
       <section>
         <button onClick={handleClick}>Click Me</button>
         <p>You have clicked the button {count} times.</p>
