@@ -14,7 +14,7 @@ export default function Contact() {
 
     // show confirmation when button clicked
     const handleSubmit = () => {
-        setConfirmation(`Your name: ${name} - Your message: ${message}`); // 
+        setConfirmation(`Your name: ${name} - Your message: ${message}`); 
     }
 
     // lab 2 
