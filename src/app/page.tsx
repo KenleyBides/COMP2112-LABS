@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main>
       <h1>COMP2112 Class Site</h1>
-      <p>This site is built with Next.jsgnweounweonbwe</p>
+      <p>This site is built with Next.js</p>
       <section>
         <button onClick={handleClick}>Click Me</button>
         <p>You have clicked the button {count} times.</p>
