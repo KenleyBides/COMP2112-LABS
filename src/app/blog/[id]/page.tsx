@@ -1,6 +1,6 @@
 import PageTitle from "@/components/PageTitle";
+
 type Post = {
-    id: number;
     title: string;
     author: string;
     date: string;
@@ -9,11 +9,11 @@ type Post = {
 }
 
 // display all content of selected Blog Post
-export default async function Post({ params }: { params: { id: number }}) {
+export default async function Post({ params }: { params: { id: string }}) {
     const { id } = await params;
 
     // fetch selected blog post from external API
-    const res: Response = await fetch(`https://api.vercel.app/blog/${id}`);
+    const res: Response = await fetch(`https://vercel-blog-api-eta.vercel.app/api/v1/posts/${id}`);
 
     // convert response json to a Post object
     const post: Post = await res.json();
@@ -30,9 +30,9 @@ export default async function Post({ params }: { params: { id: number }}) {
     // display blog post
     return (
         <main>
-            <PageTitle title="Blog Posts" />
+            <PageTitle title="Blog Post" />
             <h1>{post.title}</h1>
-            <h2>By {post.author} on {post.date}</h2>
+            <h2>By {post.author} on {new Date(post.date).toLocaleDateString()}</h2>
             <article>
                 {post.content}
             </article>

@@ -2,14 +2,19 @@
 
 import { useState } from "react";
 import PageTitle from "@/components/PageTitle";
+import { useCounter } from "@/context/GlobalContext";
 
 export default function Home() {
   // create a state var to track # of button clicks, defaults to zero
   const [ count, setCount ] = useState<number>(0);
 
+  const {increment} = useCounter();
+
   const handleClick = () => {
     // increment the count var by 1 each time 
     setCount(count + 1);
+
+    increment();
   }
 
   // every React component must have 1 return to send the JSX to the DOM
