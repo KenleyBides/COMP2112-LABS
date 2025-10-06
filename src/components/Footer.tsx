@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useCounter } from "@/context/GlobalContext";
 
-export default function footer() {
+export default function Footer() {
         const { counter } = useCounter();
     return (
         <footer>
