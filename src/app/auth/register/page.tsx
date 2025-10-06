@@ -1,6 +1,7 @@
 // Lab 3
 'use client'
 import { useForm } from "react-hook-form";
+import Link from "next/link";
 
 interface PostFormData {
     username: string;
