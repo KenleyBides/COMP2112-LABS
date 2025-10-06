@@ -18,27 +18,31 @@ export default function Register() {
     return (
         <main>
             <h1> Register </h1>
-            <form>
-            <fieldset onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+            <fieldset>
                 <label>Username</label>
-                <input type="text"{...register("username", {required: "Username is required"})}/>
+                <input type="text" {...register("username", {required: "Username is required"})}/>
                 {errors.username && <p>{errors.username.message}</p>}
             </fieldset>
 
             <fieldset>
                 <label>Password</label>
-                <input type="password"{...register("password", {required: "Password is required"})}/>
+                <input type="password" {...register("password", {required: "Password is required"})}/>
                 {errors.password && <p>{errors.password.message}</p>}
             </fieldset>
 
             <fieldset>
                 <label>Confirm</label>
-                <input type="password"{...register("password", {required: "Password is required"})}/>
-                {errors.password && <p>{errors.password.message}</p>}
+                <input type="password" {...register("confirm", { required: "Please confirm your password", validate: (value, formValues) =>
+                value === formValues.password || "Passwords do not match",
+            })}
+          />
+                {errors.confirm && <p>{errors.confirm.message}</p>}
             </fieldset>
 
-            <button>Register</button>
+            <button type="submit">Register</button>
             </form>
+            {isSubmitSuccessful && <p>Registration successful</p>}
         </main>
     )
 }
